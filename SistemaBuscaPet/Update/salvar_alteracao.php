@@ -22,13 +22,14 @@
 
 // echo "</form><hr>";
 
-$conexao = new mysqli('localhost', 'root', 'Home@spSENAI2025!', 'Treinamento');
+$conexao = new mysqli('localhost', 'root', 'Home@spSENAI2025!', 'buscapet');
 
-$cpf = $_POST['cpfAluno'];
-$novo_nome = $_POST['nomeAluno'];
-$nova_nota = $_POST['notaFinal'];
+$email = $_POST["email"];
+$senha_user = $_POST["senha"];
+$endereco = $_POST["endereco"];
+$tipo_moradia = $_POST["tipo_moradia"];
 
-$sql_update = "UPDATE alunos SET nomeAluno = '$novo_nome', notaFinal = '$nova_nota' WHERE cpfAluno = '$cpf'";
+$sql_update = "UPDATE adotantes SET email = '$email', senha = '$senha_user', endereco = '$endereco', tipo_Moradia = '$tipo_moradia' WHERE cpf = '$cpf'";
 
 if ($conexao->query($sql_update) === TRUE) {
     echo "<h2 style='color:#16a34a;'>Dados Atualizados com Sucesso!</h2>";
