@@ -34,9 +34,10 @@ $sql_update = "UPDATE adotantes SET email = '$email', senha = '$senha_user', end
 if ($conexao->query($sql_update) === TRUE) {
     echo "<h2 style='color:#16a34a;'>Dados Atualizados com Sucesso!</h2>";
     echo "<p><strong>Cadastro Final no Banco:</strong></p>";
-    echo "CPF: " . $cpf . "<br>";
-    echo "Nome: " . $novo_nome . "<br>";
-    echo "Nova Nota: " . $nova_nota . "<br>";
+    echo "email: " . $email . "<br>";
+    echo "Senha: " . $senha_user . "<br>";
+    echo "Endereço: " . $endereco . "<br>";
+    echo "Tipo de Moradia: " . $tipo_moradia . "<br>";
 } else {
     echo "Erro ao atualizar: " . $conexao->error;
 }
