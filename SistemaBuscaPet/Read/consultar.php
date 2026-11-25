@@ -9,9 +9,9 @@ echo "</form><hr>";
 if (isset($_GET['nome'])) {
     $busca = $_GET['nome'];
 
-    $conexao = new mysqli('localhost', 'root', 'Home@spSENAI2025!', 'treinamento');
+    $conexao = new mysqli('localhost', 'root', 'Home@spSENAI2025!', 'buscapet');
 
-    $sql = "SELECT * FROM alunos WHERE nomeAluno LIKE '%$busca%'";
+    $sql = "SELECT * FROM adotantes WHERE nome_usuario LIKE '%$busca%'";
 
     $resultado = $conexao->query($sql);
 
@@ -19,7 +19,7 @@ if (isset($_GET['nome'])) {
 
     if ($resultado->num_rows > 0) {
         while ($linha = $resultado->fetch_assoc()) {
-            echo "ID: " . $linha['idAluno'] . " <br>  Nome: " . $linha['nomeAluno'] . " <br> CPF: " . $linha['cpfAluno'] . "<br>";
+            echo "ID: " . $linha['id_adotante'] . " <br>  Nome: " . $linha['nome_usuario'] . " <br> CPF: " . $linha['cpf'] . "<br>";
         }
     } 
     

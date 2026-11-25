@@ -24,20 +24,17 @@
 
 $conexao = new mysqli('localhost', 'root', 'Home@spSENAI2025!', 'buscapet');
 
+$cpf = $_POST["cpf"];
 $email = $_POST["email"];
 $senha_user = $_POST["senha"];
-$endereco = $_POST["endereco"];
-$tipo_moradia = $_POST["tipo_moradia"];
 
-$sql_update = "UPDATE adotantes SET email = '$email', senha = '$senha_user', endereco = '$endereco', tipo_Moradia = '$tipo_moradia' WHERE cpf = '$cpf'";
+$sql_update = "UPDATE adotantes SET email = '$email', senha = '$senha_user' WHERE cpf = '$cpf'";
 
 if ($conexao->query($sql_update) === TRUE) {
     echo "<h2 style='color:#16a34a;'>Dados Atualizados com Sucesso!</h2>";
     echo "<p><strong>Cadastro Final no Banco:</strong></p>";
     echo "email: " . $email . "<br>";
     echo "Senha: " . $senha_user . "<br>";
-    echo "Endereço: " . $endereco . "<br>";
-    echo "Tipo de Moradia: " . $tipo_moradia . "<br>";
 } else {
     echo "Erro ao atualizar: " . $conexao->error;
 }
